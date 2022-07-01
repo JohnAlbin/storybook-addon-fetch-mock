@@ -1,0 +1,37 @@
+# Exclude other VCS tracking files.
+CVS
+.#*
+.hg
+.svn
+.bzr
+
+# Exclude hidden and temp Mac and Windows files.
+.DS_Store
+._*
+*.LCK
+*.TMP
+Thumbs.db
+_notes
+_vti_*
+*~
+
+# Exclude IDE files.
+  # Eclipse
+/.buildpath
+/.project
+/.settings
+  # JetBrains IDEs
+/.idea
+  # Komodo
+/*.kpf
+  # NetBeans
+/nbproject
+/netbeans
+  # Visual Studio Code
+/.vscode
+
+# Exclude NPM and Yarn files.
+/node_modules
+/npm-debug.log
+/yarn.lock
+/yarn-debug.log

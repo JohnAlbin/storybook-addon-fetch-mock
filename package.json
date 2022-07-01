@@ -1,0 +1,24 @@
+{
+  "name": "storybook-addon-fetch-mock",
+  "version": "0.8.0",
+  "description": "Adds fetch() mocking to Storybook.js using fetch-mock",
+  "author": "John Albin Wilkins <virtually.johnalbin@gmail.com> (https://john.albin.net/)",
+  "homepage": "https://github.com/JohnAlbin/storybook-addon-fetch-mock#readme",
+  "bugs": {
+    "url": "https://github.com/JohnAlbin/storybook-addon-fetch-mock/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JohnAlbin/storybook-addon-fetch-mock.git"
+  },
+  "license": "(MIT OR GPL-2.0-only)",
+  "keywords": [
+    "storybook",
+    "fetch",
+    "fetch-mock"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
