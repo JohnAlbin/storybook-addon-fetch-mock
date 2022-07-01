@@ -1,0 +1,14 @@
+# Ignore everything.
+/*
+
+# Don't ignore some JavaScript and Markdown files in the root directory.
+!/*.js
+!/*.md
+!/.prettierrc.json
+
+# Ignore generated CHANGELOG.
+/CHANGELOG.md
+
+# Don't ignore source and tests.
+!/src
+!/tests

@@ -19,9 +19,13 @@
   ],
   "main": "index.js",
   "scripts": {
+    "prettier": "prettier --write \"{.*/**/*,*,**/*}.{js,jsx,ts,tsx,json,md,yml,css,scss}\"",
+    "prettier:check": "prettier --check \"{.*/**/*,*,**/*}.{js,jsx,ts,tsx,json,md,yml,css,scss}\"",
+    "format": "npm run prettier",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
+    "prettier": "^2.7.1",
     "release-please": "^13.19.0"
   }
 }
