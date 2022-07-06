@@ -8,8 +8,12 @@ import { Mock, MockArray, MockObject } from './typings';
  * Helper function to add an array of mocks to fetch-mock.
  *
  * @param {Mock[]} mocks A list of mocks to add.
+ * @param {string} parameterName The parameter the mocks are from.
  */
-function addMocks(mocks: Mock[]) {
+function addMocks(
+  mocks: Mock[],
+  parameterName: 'mocks' | 'catchAllMocks' = 'mocks',
+) {
   if (Array.isArray(mocks)) {
     mocks.forEach((mock) => {
       // Mock defined as: [ matcher, response, options ]
@@ -26,7 +30,9 @@ function addMocks(mocks: Mock[]) {
       }
     });
   } else {
-    console.warn(`fetchMock.mocks should be an array; ${typeof mocks} given.`);
+    console.warn(
+      `fetchMock.${parameterName} should be an array; ${typeof mocks} given.`,
+    );
   }
 }
 
@@ -65,6 +71,9 @@ export const withFetchMock = makeDecorator({
     if (typeof parameters.useFetchMock === 'function') {
       parameters.useFetchMock(fetchMock);
     }
+
+    // Add any catch-all mocks.
+    addMocks(parameters.catchAllMocks, 'catchAllMocks');
 
     // Add any catch-all urls last.
     if (Array.isArray(parameters.catchAllURLs)) {
