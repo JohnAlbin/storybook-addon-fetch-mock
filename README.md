@@ -37,8 +37,13 @@ export const ShowMeTheUnicorns = {
   },
   parameters: {
     fetchMock: {
+      // "fetchMock.mocks" is a list of mocked
+      // API endpoints.
       mocks: [
         {
+          // The "matcher" determines if this
+          // mock should respond to the current
+          // call to fetch().
           matcher: {
             name: 'searchSuccess',
             url: 'path:/unicorn/list',
@@ -46,6 +51,9 @@ export const ShowMeTheUnicorns = {
               search: 'Charlie',
             },
           },
+          // If the "matcher" matches the current
+          // fetch() call, the fetch response is
+          // built using this "response".
           reponse: {
             status: 200,
             body: {
@@ -143,54 +151,24 @@ You can also place the `parameters.fetchMock.mocks` array inside Storybook’s `
 
 ### The `parameters.fetchMock.mocks` array
 
-Each entry in the `parameters.fetchMock.mocks` array is compared to the current call to `fetch()` until a match is found. Each mock’s `matcher` object has one or more criteria that is used to match. And the matched mock’s `response` object is used to configure the `fetch()` response.
+When a call to `fetch()` is made, each mock in the `parameters.fetchMock.mocks` array is compared to the `fetch()` request until a match is found.
 
-```js
-export const ShowMeTheUnicorns = {
-  args: { unicornComponentArg: true },
-  parameters: {
-    fetchMock: {
-      mocks: [
-        {
-          matcher: {
-            name: 'searchSuccess',
-            url: 'https://example.com/endpoint/search',
-            method: 'GET',
-            query: {
-              q: 'charlie',
-            },
-          },
-          reponse: {
-            status: 200,
-            body: {
-              unicorns: true,
-            },
-          },
-        },
-        {
-          matcher: {
-            name: 'searchFail',
-            url: 'https://example.com/endpoint/search',
-            method: 'GET',
-          },
-          reponse: {
-            status: 502,
-            body: {
-              error: 'No unicorns',
-            },
-          },
-        },
-      ],
-    },
-  },
-};
-```
+Each mock should be an object containing the following possible keys:
+
+- `matcher` (required): Each mock’s `matcher` object has one or more criteria that is used to match. If multiple criteria are included in the `matcher` all of the criteria must match in order for the mock to be used.
+- `response` (optional): Once the match is made, the matched mock’s `response` is used to configure the `fetch()` response.
+  - If the mock does not specify a `response`, the `fetch()` response will use a HTTP 200 status with no body data.
+  - If the `response` is an object, those values are used to create the `fetch()` response.
+  - If the `response` is a function, the function should return an object whose values are used to create the `fetch()` response.
+- `options` (optional): Further options for configuring mocking behaviour.
 
 Here’s the full list of possible keys for `matcher`, `response`, and `options`:
 
 ```js
 const exampleMock = {
-  // Criteria for deciding which requests should match this mock.
+  // Criteria for deciding which requests should match this
+  // mock. If multiple criteria are included, all of the
+  // criteria must match in order for the mock to be used.
   matcher: {
     // Match only requests where the endpoint "url" is matched
     // using any one of these formats:
@@ -290,6 +268,19 @@ const exampleMock = {
     // Force fetch to return a Promise rejected with the
     // value of "throws".
     throws: new TypeError('Failed to fetch'),
+  },
+
+  // Alternatively, the `response` can be a function that
+  // returns an object with any of the keys above. The
+  // function will be passed the url and options fetch was
+  // called with. If fetch was called with a Request
+  // instance, it will be passed url and options inferred
+  // from the Request instance, with the original Request
+  // will be passed as a third argument.
+  reponse: (url, options, request) => {
+    return {
+      status: options.headers.Authorization ? 200 : 403,
+    };
   },
 
   // An object containing further options for configuring
