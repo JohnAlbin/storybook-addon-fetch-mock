@@ -1,4 +1,4 @@
-<div style="text-align: center">
+<div align="center">
 <img src="https://raw.githubusercontent.com/JohnAlbin/storybook-addon-fetch-mock/main/storybook-addon-fetch-mock.svg" width="382" height="250" alt="Project icon has pink arrows going between Storybook and fetch-mock" />
 </div>
 
