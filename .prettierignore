@@ -5,9 +5,14 @@
 !/*.js
 !/*.md
 !/.prettierrc.json
+!/babel.config.js
+!/tsconfig.json
 
 # Ignore generated CHANGELOG.
 /CHANGELOG.md
+
+# Don't ignore configuration files.
+!/.github
 
 # Don't ignore source and tests.
 !/src

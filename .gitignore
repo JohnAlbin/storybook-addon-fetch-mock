@@ -35,3 +35,6 @@ _vti_*
 /npm-debug.log
 /yarn.lock
 /yarn-debug.log
+
+# Exclude the distrubution files built with Babel.
+/dist/
