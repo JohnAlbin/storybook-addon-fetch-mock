@@ -119,7 +119,6 @@ To intercept the `fetch` calls to your API endpoints, add a `parameters.fetchMoc
 If you place the `parameters.fetchMock.mocks` array inside a single story’s export, the mocks will apply to just that story:
 
 ```js
-// We define the story here using CSF 3.0.
 export const MyStory = {
   parameters: {
     fetchMock: {
@@ -312,13 +311,23 @@ const exampleMock = {
 The following options are designed to be used in Storybook’s `preview.js` config file.
 
 ```js
+// .storybook/preview.js
 export const parameters = {
   fetchMock: {
     // When the story is reloaded (or you navigate to a new
-    // story, this addon will be reset and a list of previous
-    // mock matches will be sent to the browser’s console if
-    // "debug" is true.
+    // story, this addon will be reset and a list of
+    // previous mock matches will be sent to the browser’s
+    // console if "debug" is true.
     debug: true,
+
+    // Do any additional configuration of fetch-mock, e.g.
+    // setting fetchMock.config or calling other fetch-mock
+    // API methods. This function is given the fetchMock
+    // instance as its only parameter and is called after
+    // mocks are added but before catchAllMocks are added.
+    useFetchMock: (fetchMock) => {
+      fetchMock.config.overwriteRoutes = false;
+    },
 
     // After each story’s `mocks` are added, these catch-all
     // mocks are added.

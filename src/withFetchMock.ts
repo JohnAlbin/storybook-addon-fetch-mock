@@ -60,6 +60,12 @@ export const withFetchMock = makeDecorator({
     // Add all the mocks.
     addMocks(parameters.mocks);
 
+    // Do any additional configuration of fetchMock, e.g. setting
+    // fetchMock.config or calling other methods.
+    if (typeof parameters.useFetchMock === 'function') {
+      parameters.useFetchMock(fetchMock);
+    }
+
     // Add any catch-all urls last.
     if (Array.isArray(parameters.catchAllURLs)) {
       parameters.catchAllURLs.forEach((url) => {
