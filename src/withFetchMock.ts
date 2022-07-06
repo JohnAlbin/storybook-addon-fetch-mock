@@ -38,6 +38,18 @@ export const withFetchMock = makeDecorator({
   skipIfNoParametersOrOptions: false,
 
   wrapper(storyFn, context, { parameters }) {
+    // If requested, send debug info to the console.
+    if (fetchMock.called() && parameters && parameters.debug) {
+      // Construct an object that easy to navigate in the console.
+      const calls: { [key: string]: MockCall } = {};
+      fetchMock.calls().forEach((call) => {
+        calls[call.identifier] = call;
+      });
+
+      // Send the debug data to the console.
+      console.log({ 'fetch-mock matched these mocks': calls });
+    }
+
     // Remove any mocks from fetch-mock that may have been defined by other
     // stories.
     fetchMock.reset();
