@@ -6,6 +6,8 @@
 
 This [Storybook.js](https://storybook.js.org/) addon adds `fetch()` mocking using [`fetch-mock`](http://www.wheresrhys.co.uk/fetch-mock/).
 
+[![Node.js CI Status](https://github.com/JohnAlbin/storybook-addon-fetch-mock/actions/workflows/node.js.yml/badge.svg)](https://github.com/JohnAlbin/storybook-addon-fetch-mock/actions/workflows/node.js.yml)
+
 ## Why use storybook-addon-fetch-mock?
 
 If you are already using [Storybook.js](https://storybook.js.org/), you may have components that call API endpoints. And to ensure your component Storybook documentation isn’t dependent on those API endpoints being available, you’ll want to mock any calls to those API endpoints. This is doubly true if any of your components alter data on the endpoint.
