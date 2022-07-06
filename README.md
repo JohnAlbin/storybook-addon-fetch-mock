@@ -112,7 +112,7 @@ If we fill out the “search” field with a different value, our Storybook addo
 
 ## Configure mock data
 
-To intercept your API endpoints `fetch` calls, add a `parameters.fetchMock.mocks` array containing one or more endpoint mocks.
+To intercept the `fetch` calls to your API endpoints, add a `parameters.fetchMock.mocks` array containing one or more endpoint mocks.
 
 ### Where do the parameters go?
 
