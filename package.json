@@ -34,6 +34,7 @@
     "build:babel:esm": "babel ./src -d ./dist/esm --env-name esm --extensions \".js,.jsx,.ts,.tsx\"",
     "build:tsc": "tsc --declaration --emitDeclarationOnly --outDir ./dist/ts",
     "prebuild": "npm run clean",
+    "prepare": "npm run build",
     "clean": "rimraf ./dist",
     "lint": "eslint src/",
     "lint:fix": "eslint --fix src/",
