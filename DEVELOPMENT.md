@@ -24,10 +24,14 @@ Don’t worry. You can still submit a Pull Request and if you don’t properly u
 ### Details
 
 ```
-+----→ <type>: Must be one of:
-│              feat, fix, style, refactor,
-│              docs, style, test, chore
-│              Append with ! if its a BREAKING CHANGE.
++---→ <type>: Must be one of:
+│             feat, fix, style, refactor,
+│             docs, style, test, chore
+│             Append with ! if its a BREAKING CHANGE.
+│
+│  (<scope>): Semantic commit messages can contain an
+│             optional "(scope)" after the "type", but
+│             this project doesn't use them.
 │
 │   +--→ <!>: Indicates a BREAKING CHANGE that
 │   │         requires a new major semantic version.
