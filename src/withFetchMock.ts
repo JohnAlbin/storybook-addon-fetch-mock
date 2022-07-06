@@ -60,6 +60,22 @@ export const withFetchMock = makeDecorator({
     // Add all the mocks.
     addMocks(parameters.mocks);
 
+    // Add any catch-all urls last.
+    if (Array.isArray(parameters.catchAllURLs)) {
+      parameters.catchAllURLs.forEach((url) => {
+        fetchMock.mock(
+          {
+            // Add descriptive name for debugging.
+            name: `catchAllURLs[ ${url} ]`,
+            url: `begin:${url}`,
+          },
+          // Catch-all mocks will respond with 404 to make it easy to determine
+          // one of the catch-all mocks was used.
+          404,
+        );
+      });
+    }
+
     // Render the story.
     return storyFn(context);
   },
