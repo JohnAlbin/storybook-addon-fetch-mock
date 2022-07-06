@@ -1,6 +1,6 @@
 {
   "name": "storybook-addon-fetch-mock",
-  "version": "1.0.0-beta.1",
+  "version": "1.0.0",
   "description": "Adds fetch() mocking to Storybook.js using fetch-mock",
   "author": "John Albin Wilkins <virtually.johnalbin@gmail.com> (https://john.albin.net/)",
   "homepage": "https://github.com/JohnAlbin/storybook-addon-fetch-mock#readme",

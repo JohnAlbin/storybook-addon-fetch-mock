@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.0](https://github.com/JohnAlbin/storybook-addon-fetch-mock/compare/v1.0.0-beta.1...v1.0.0) (2022-07-06)
+
+
+### Miscellaneous Chores
+
+* release 1.0.0 ([27f4d43](https://github.com/JohnAlbin/storybook-addon-fetch-mock/commit/27f4d43e66ab32eb820157b8da76f9a7c37f4249))
+
 ## 1.0.0-beta.1 (2022-07-06)
 
 
