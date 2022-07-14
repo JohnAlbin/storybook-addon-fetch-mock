@@ -12,13 +12,19 @@ This [Storybook.js](https://storybook.js.org/) addon adds `fetch()` mocking usin
 
 If you are already using [Storybook.js](https://storybook.js.org/), you may have components that call API endpoints. And to ensure your component Storybook documentation isn’t dependent on those API endpoints being available, you’ll want to mock any calls to those API endpoints. This is doubly true if any of your components alter data on the endpoint.
 
-Fortunately, the Storybook ecosystem has many addons to make mocking APIs easier. Any of these addons will allow you to intercept the real API calls in your components and return any mocked data response you’d like.
+Fortunately, the Storybook ecosystem has many addons to make mocking Fetch APIs easier. Any of these addons will allow you to intercept the real API calls in your components and return any mocked data response you’d like.
 
-- If you use **Service Workers**, you’ll want to evaluate the [Mock Service Worker addon](https://storybook.js.org/addons/msw-storybook-addon/).
-- If you use **GraphQL**, you’ll want to evaluate the [Apollo Client addon](https://storybook.js.org/addons/storybook-addon-apollo-client/).
-- If you use **XMLHttpRequest (XHR)**, you’ll want to evaluate the [Mock API Request addon](https://storybook.js.org/addons/storybook-addon-mock/). This addon also mocks
-  fetch, but its capabilities are very basic.
-- Lastly, if you use **Fetch API**, this project, storybook-addon-fetch-mock, is a light wrapper around the `fetch-mock` library, a well-maintained, highly-configurable mocking library.
+| Storybook Addon                                                                   | full Fetch mocking | Mock functions  |  Mock objects   |
+| --------------------------------------------------------------------------------- | :----------------: | :-------------: | :-------------: |
+| [Mock Service Worker addon](https://storybook.js.org/addons/msw-storybook-addon/) |         ✅         | ✅ <sup>2</sup> |       ❌        |
+| [Mock API Request addon](https://storybook.js.org/addons/storybook-addon-mock/)   |  ❌ <sup>1</sup>   |       ✅        |       ✅        |
+| storybook-addon-fetch-mock                                                        |         ✅         |       ✅        | ✅ <sup>3</sup> |
+
+**<sup>1</sup>** If you use XMLHttpRequest (XHR), the Mock API Request addon will serve you well, but we don’t recommend it for Fetch API mocking. Its capabilities are very basic and some Fetch API requests cannot be mocked with this addon.
+
+**<sup>2</sup>** If you are wanting to mock a Fetch API that you are writing, writing mock resolver functions with the Mock Service Worker addon might be the easiest method.
+
+**<sup>3</sup>** If you are wanting to mock a Fetch API that you _aren’t_ writing, writing simple JavaScript objects might be the easiest method of mocking. This project, storybook-addon-fetch-mock, is a light wrapper around the [`fetch-mock`](http://www.wheresrhys.co.uk/fetch-mock/) library, a well-maintained, highly-configurable mocking library available since 2015. It allows you to write mocks as simple JavaScript objects, as resolver functions, or a combination of the two.
 
 ## A quick example
 
@@ -158,7 +164,7 @@ Each mock should be an object containing the following possible keys:
 
 - `matcher` (required): Each mock’s `matcher` object has one or more criteria that is used to match. If multiple criteria are included in the `matcher` all of the criteria must match in order for the mock to be used.
 - `response` (optional): Once the match is made, the matched mock’s `response` is used to configure the `fetch()` response.
-  - If the mock does not specify a `response`, the `fetch()` response will use a HTTP 200 status with no body data.
+  - If the mock does not specify a `response`, the `fetch()` response will use an HTTP 200 status with no body data.
   - If the `response` is an object, those values are used to create the `fetch()` response.
   - If the `response` is a function, the function should return an object whose values are used to create the `fetch()` response.
 - `options` (optional): Further options for configuring mocking behaviour.
