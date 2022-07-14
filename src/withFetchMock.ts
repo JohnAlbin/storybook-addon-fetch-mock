@@ -29,7 +29,7 @@ function addMocks(
         fetchMock.mock(matcher, response, options);
       }
     });
-  } else {
+  } else if (mocks) {
     console.warn(
       `fetchMock.${parameterName} should be an array; ${typeof mocks} given.`,
     );
