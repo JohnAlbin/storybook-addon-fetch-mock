@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/JohnAlbin/storybook-addon-fetch-mock/compare/v1.0.0...v1.0.1) (2022-07-14)
+
+
+### Bug Fixes
+
+* Prevent warning when mocks not specified ([47930a0](https://github.com/JohnAlbin/storybook-addon-fetch-mock/commit/47930a0c4fd2e927dcb6eadc2cf17d2dfbcbee1c))
+
 ## [1.0.0](https://github.com/JohnAlbin/storybook-addon-fetch-mock/compare/v1.0.0-beta.1...v1.0.0) (2022-07-06)
 
 
