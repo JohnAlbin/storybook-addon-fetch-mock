@@ -62,7 +62,7 @@ export const ShowMeTheUnicorns = {
           // If the "matcher" matches the current
           // fetch() call, the fetch response is
           // built using this "response".
-          reponse: {
+          response: {
             status: 200,
             body: {
               count: 1,
@@ -80,7 +80,7 @@ export const ShowMeTheUnicorns = {
             name: 'searchFail',
             url: 'path:/unicorn/list',
           },
-          reponse: {
+          response: {
             status: 200,
             body: {
               count: 0,
@@ -251,7 +251,7 @@ const exampleMock = {
   },
 
   // Configures the HTTP response returned by the mock.
-  reponse: {
+  response: {
     // The mock response’s "statusText" is automatically set
     // based on this "status" number. Defaults to 200.
     status: 200,
@@ -284,7 +284,7 @@ const exampleMock = {
   // instance, it will be passed url and options inferred
   // from the Request instance, with the original Request
   // will be passed as a third argument.
-  reponse: (url, options, request) => {
+  response: (url, options, request) => {
     return {
       status: options.headers.Authorization ? 200 : 403,
     };
