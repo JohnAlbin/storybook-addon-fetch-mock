@@ -8,6 +8,7 @@
 !/.prettierrc.json
 !/babel.config.js
 !/tsconfig.json
+!/tsup.config.ts
 
 # Ignore generated CHANGELOG.
 /CHANGELOG.md
