@@ -4,7 +4,7 @@
 # Don't ignore some JavaScript and Markdown files in the root directory.
 !/*.js
 !/*.md
-!/.eslintrc.js
+!/.eslintrc.cjs
 !/.prettierrc.json
 !/babel.config.js
 !/tsconfig.json

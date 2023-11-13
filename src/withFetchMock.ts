@@ -1,8 +1,8 @@
 import fetchMock from 'fetch-mock';
-import { MockCall } from 'fetch-mock/types';
-import { makeDecorator } from '@storybook/addons';
+import { makeDecorator } from '@storybook/preview-api';
 import { PARAM_KEY } from './constants';
-import { Mock, MockArray, MockObject } from './typings';
+import type { MockCall } from 'fetch-mock/types';
+import type { Mock, MockArray, MockObject } from './typings';
 
 /**
  * Helper function to add an array of mocks to fetch-mock.
