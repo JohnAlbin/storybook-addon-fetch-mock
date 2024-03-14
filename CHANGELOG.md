@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.0.0](https://github.com/JohnAlbin/storybook-addon-fetch-mock/compare/v2.0.0-beta.1...v2.0.0) (2024-03-14)
+
+
+### Bug Fixes
+
+* typo in package.json ([be6890c](https://github.com/JohnAlbin/storybook-addon-fetch-mock/commit/be6890caff3ce134867ec64d8eb7f40779ad6b2c)), closes [#10](https://github.com/JohnAlbin/storybook-addon-fetch-mock/issues/10)
+
+
+### Miscellaneous Chores
+
+* release 2.0.0 ([0d1354d](https://github.com/JohnAlbin/storybook-addon-fetch-mock/commit/0d1354dba43ec5d616f2e7b5a08dcc353f9048bb))
+
 ## [2.0.0-beta.1](https://github.com/JohnAlbin/storybook-addon-fetch-mock/compare/v1.0.1...v2.0.0-beta.1) (2023-11-13)
 
 
