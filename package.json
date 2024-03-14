@@ -36,7 +36,7 @@
     "./preview": {
       "import": {
         "types": "./dist/preview.d.ts",
-        "defualt": "./dist/preview.js"
+        "default": "./dist/preview.js"
       },
       "require": {
         "types": "./dist/preview.d.cts",
