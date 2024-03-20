@@ -43,9 +43,9 @@ export const withFetchMock = makeDecorator({
   //   reset fetch-mock.
   skipIfNoParametersOrOptions: false,
 
-  wrapper(storyFn, context, { parameters }) {
+  wrapper(storyFn, context, { parameters = {} }) {
     // If requested, send debug info to the console.
-    if (fetchMock.called() && parameters && parameters.debug) {
+    if (fetchMock.called() && parameters.debug) {
       // Construct an object that easy to navigate in the console.
       const calls: { [key: string]: MockCall } = {};
       fetchMock.calls().forEach((call) => {
