@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.0.1](https://github.com/JohnAlbin/storybook-addon-fetch-mock/compare/v2.0.0...v2.0.1) (2024-07-23)
+
+
+### Bug Fixes
+
+* Add fallback value to parameters to avoid TypeError ([b06529e](https://github.com/JohnAlbin/storybook-addon-fetch-mock/commit/b06529e626d4566ecfb9ce448e48f7563ec5d086))
+* Change peer dependency from exact version for @storybook/preview-api ([f42e23d](https://github.com/JohnAlbin/storybook-addon-fetch-mock/commit/f42e23dee1693f99a4fd6dc716da677c62bbb89d))
+
 ## [2.0.0](https://github.com/JohnAlbin/storybook-addon-fetch-mock/compare/v2.0.0-beta.1...v2.0.0) (2024-03-14)
 
 
