@@ -1,7 +1,6 @@
 import fetchMock from 'fetch-mock';
 import { makeDecorator } from '@storybook/preview-api';
 import { PARAM_KEY } from './constants';
-import type { MockCall } from 'fetch-mock/types';
 import type { Mock, MockArray, MockObject } from './typings';
 
 /**
@@ -47,7 +46,7 @@ export const withFetchMock = makeDecorator({
     // If requested, send debug info to the console.
     if (fetchMock.called() && parameters.debug) {
       // Construct an object that easy to navigate in the console.
-      const calls: { [key: string]: MockCall } = {};
+      const calls: { [key: string]: fetchMock.MockCall } = {};
       fetchMock.calls().forEach((call) => {
         calls[call.identifier] = call;
       });
