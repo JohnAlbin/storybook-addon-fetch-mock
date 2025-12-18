@@ -1,5 +1,5 @@
 import fetchMock from 'fetch-mock';
-import { makeDecorator } from '@storybook/preview-api';
+import { makeDecorator } from 'storybook/preview-api';
 import { PARAM_KEY } from './constants';
 import type { MockCall } from 'fetch-mock/types';
 import type { Mock, MockArray, MockObject } from './typings';
