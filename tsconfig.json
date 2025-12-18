@@ -6,13 +6,17 @@
     "experimentalDecorators": true,
     "incremental": false,
     "isolatedModules": true,
-    "jsx": "react",
+    "jsx": "react-jsx",
     "lib": ["es2020", "dom"],
-    "module": "commonjs",
+    "module": "es2020",
+    "moduleResolution": "bundler",
     "noImplicitAny": true,
     "rootDir": "./src",
     "skipLibCheck": true,
     "target": "ES2020"
   },
-  "include": ["src/**/*"]
+  "include": ["src/**/*"],
+  "paths": {
+    "storybook-addon-fetch-mock": ["./*"]
+  }
 }
