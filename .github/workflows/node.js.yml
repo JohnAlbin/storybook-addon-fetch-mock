@@ -1,7 +1,3 @@
-# This workflow will do a clean install of node dependencies, cache/restore
-# them and run tests across different versions of node. For more information
-# see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
-
 name: Node.js CI
 
 on:
@@ -15,15 +11,15 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [18.x, 20.x]
+        node-version: [20, 22, 24]
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-          cache: 'npm'
+          cache: "npm"
       - name: install
-        run: npm ci
+        run: npm install --include=dev
       - name: lint
-        run: npm run ci:lint
+        run: npm run check

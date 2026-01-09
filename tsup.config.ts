@@ -1,20 +1,13 @@
-import { defineConfig } from 'tsup';
+import { defineConfig } from "tsup";
 
 export default defineConfig((options) => ({
-  entry: ['src/index.ts', 'src/preview.ts'],
-  splitting: true,
+  entry: ["src/index.ts", "src/preview.ts"],
+  splitting: false,
   minify: !options.watch,
-  format: ['cjs', 'esm'],
-  dts: {
-    // Setting resolve to true throws:
-    // RollupError: "NextHandleFunction" is not exported
-    resolve: false,
-  },
+  format: "esm",
+  dts: { resolve: true },
   treeshake: true,
   sourcemap: true,
   clean: true,
-  platform: 'browser',
-  esbuildOptions(options) {
-    options.conditions = ['module'];
-  },
+  platform: "browser",
 }));

@@ -31,17 +31,17 @@ Fortunately, the Storybook ecosystem has many addons to make mocking Fetch APIs 
 Imagine a `UnicornSearch` component that uses `fetch()` to call an endpoint to search for a list of unicorns. You can use the `storybook-addon-fetch-mock` to bypass the actual API endpoint and return a mocked response. After following the “Installation” instructions below, you could configure `UnicornSearch.stories.js` like this:
 
 ```js
-import UnicornSearch from './UnicornSearch';
+import UnicornSearch from "./UnicornSearch";
 
 export default {
-  title: 'Unicorn Search',
+  title: "Unicorn Search",
   component: UnicornSearch,
 };
 
 // We define the story here using CSF 3.0.
 export const ShowMeTheUnicorns = {
   args: {
-    search: '',
+    search: "",
   },
   parameters: {
     fetchMock: {
@@ -53,10 +53,10 @@ export const ShowMeTheUnicorns = {
           // mock should respond to the current
           // call to fetch().
           matcher: {
-            name: 'searchSuccess',
-            url: 'path:/unicorn/list',
+            name: "searchSuccess",
+            url: "path:/unicorn/list",
             query: {
-              search: 'Charlie',
+              search: "Charlie",
             },
           },
           // If the "matcher" matches the current
@@ -68,8 +68,8 @@ export const ShowMeTheUnicorns = {
               count: 1,
               unicorns: [
                 {
-                  name: 'Charlie',
-                  location: 'magical Candy Mountain',
+                  name: "Charlie",
+                  location: "magical Candy Mountain",
                 },
               ],
             },
@@ -77,8 +77,8 @@ export const ShowMeTheUnicorns = {
         },
         {
           matcher: {
-            name: 'searchFail',
-            url: 'path:/unicorn/list',
+            name: "searchFail",
+            url: "path:/unicorn/list",
           },
           response: {
             status: 200,
@@ -110,7 +110,7 @@ If we fill out the “search” field with a different value, our Storybook addo
 
    ```js
    module.exports = {
-     addons: ['storybook-addon-fetch-mock'],
+     addons: ["storybook-addon-fetch-mock"],
    };
    ```
 
@@ -142,7 +142,7 @@ If you place the `parameters.fetchMock.mocks` array inside a Storybook file’s 
 
 ```js
 export default {
-  title: 'Components/Unicorn Search',
+  title: "Components/Unicorn Search",
   component: UnicornSearch,
   parameters: {
     fetchMock: {
@@ -194,26 +194,26 @@ const exampleMock = {
     //     style path. e.g. "express:/user/:user"
     // - RegExp - Match a url that satisfies a regular
     //     expression. e.g. /(article|post)\/\d+/
-    url: 'https://example.com/endpoint/search',
+    url: "https://example.com/endpoint/search",
 
     // If you have multiple mocks that use the same "url",
     // a unique "name" is required.
-    name: 'searchSuccess',
+    name: "searchSuccess",
 
     // Match only requests using this HTTP method. Not
     // case-sensitive.
-    method: 'POST',
+    method: "POST",
 
     // Match only requests that have these headers set.
     headers: {
-      Authorization: 'Basic 123',
+      Authorization: "Basic 123",
     },
 
     // Match only requests that send a JSON body with the
     // exact structure and properties as the one provided.
     // See matcher.matchPartialBody below to override this.
     body: {
-      unicornName: 'Charlie',
+      unicornName: "Charlie",
     },
 
     // Match calls that only partially match the specified
@@ -223,14 +223,14 @@ const exampleMock = {
     // Match only requests that have these query parameters
     // set (in any order).
     query: {
-      q: 'cute+kittenz',
+      q: "cute+kittenz",
     },
 
     // When the express: keyword is used in the "url"
     // matcher, match only requests with these express
     // parameters.
     params: {
-      user: 'charlie',
+      user: "charlie",
     },
 
     // Match if the function returns something truthy. The
@@ -264,17 +264,17 @@ const exampleMock = {
 
     // Set the mock response’s headers.
     headers: {
-      'Content-Type': 'text/html',
+      "Content-Type": "text/html",
     },
 
     // The url from which the mocked response should claim
     // to originate from (to imitate followed directs).
     // Will also set `redirected: true` on the response.
-    redirectUrl: 'https://example.com/search',
+    redirectUrl: "https://example.com/search",
 
     // Force fetch to return a Promise rejected with the
     // value of "throws".
-    throws: new TypeError('Failed to fetch'),
+    throws: new TypeError("Failed to fetch"),
   },
 
   // Alternatively, the `response` can be a function that
@@ -340,8 +340,8 @@ export const parameters = {
     // After each story’s `mocks` are added, these catch-all
     // mocks are added.
     catchAllMocks: [
-      { matcher: { url: 'path:/endpoint1' }, response: 200 },
-      { matcher: { url: 'path:/endpoint2' }, response: 200 },
+      { matcher: { url: "path:/endpoint1" }, response: 200 },
+      { matcher: { url: "path:/endpoint2" }, response: 200 },
     ],
 
     // A simple list of URLs to ensure that calls to
@@ -355,7 +355,7 @@ export const parameters = {
       //   matcher: { url: 'begin:http://example.com/' },
       //   response: { status: 404 },
       // }
-      'http://example.com/',
+      "http://example.com/",
     ],
   },
 };
